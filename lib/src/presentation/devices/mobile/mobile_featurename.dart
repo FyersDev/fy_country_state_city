@@ -1,0 +1,1 @@
+//this is the file where the layout decisions of the mobile screens will be taken care
