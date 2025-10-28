@@ -1,4 +1,4 @@
-name: fy_package_name
+name: fy_country_state_city
 description: "Package description"
 version: 0.0.1
 
@@ -14,8 +14,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  fy_service_layer:
+    git:
+      url: git@github.com:FyersDev/fy_service_layer.git
+      ref: master
 
-flutter: null
+flutter: 
+  uses-material-design: false
+  assets:
+    - assets/
 
 ###****** Snippet for enabling localization ******###
 flutter_intl:
