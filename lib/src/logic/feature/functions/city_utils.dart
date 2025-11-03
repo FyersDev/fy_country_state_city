@@ -6,8 +6,8 @@ import 'package:fy_service_layer/fy_service_layer.dart';
 /// Load cities from a country-specific JSON file (more efficient for large countries)
 Future<List<City>> _loadCountryCities(String countryCode) async {
   try {
-    final res = await FyNetwork.get(
-      'https://assets.fyers.in/country_package/cities/$countryCode.json',
+    final res = await FyNetwork.client.get(
+      Uri.parse('https://assets.fyers.in/country_package/cities/$countryCode.json'),
     );
     final data = jsonDecode(res.body) as List;
     return List<City>.from(
@@ -29,6 +29,7 @@ Future<List<City>> loadCountryCitiesOptimized(String countryCode) async {
     return city.countryCode == countryCode;
   }).toList();
   res.sort((a, b) => a.name.compareTo(b.name));
+  print('res: ${res.runtimeType}');
 
   return res;
 }
